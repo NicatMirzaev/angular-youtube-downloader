@@ -1,0 +1,16 @@
+<div class="searchField">
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      (change)="onInputChange($event)"
+      (keyup.enter)="onSubmit()"
+      placeholder="Search keyword or paste youtube link"
+    />
+    <div class="input-group-btn">
+      <button class="btn btn-default" (click)="onSubmit()">
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </div>
+  </div>
+</div>
