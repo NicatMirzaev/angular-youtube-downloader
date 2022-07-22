@@ -8,7 +8,7 @@ import { Component, Input} from '@angular/core';
 
 export class SearchComponent {
   keyword = '';
-  @Input('onSearch') onSearch!: (keyword: String) => void;
+  @Input('onSearch') onSearch!: (keyword: string) => void;
   constructor() {}
 
   onInputChange(event: Event): void {
