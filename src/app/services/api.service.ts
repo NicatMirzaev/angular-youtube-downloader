@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class ApiService {
   constructor(public http: HttpClient) { }
 
   getVideosByKeyword(keyword: string) {
-    const URL = this.BASE_URL += `search?part=snippet&maxResults=20&q=${keyword}&type=video&key=${this.API_KEY}`;
+    const URL = `${this.BASE_URL}search?part=snippet&maxResults=20&q=${keyword}&type=video&key=${this.API_KEY}`;
     return this.http.get(URL);
   }
 }

@@ -1,10 +1,14 @@
 <div class="videoContainer">
   <div class="download">
-    <select class="form-select form-select-lg">
-      <option selected>Download</option>
-      <option value="1">MP4</option>
-      <option value="2">MP3</option>
-    </select>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Download
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button class="dropdown-item" (click)="handleDownload(video.id.videoId,'mp4')">MP4</button>
+        <button class="dropdown-item" (click)="handleDownload(video.id.videoId,'mp3')">MP3</button>
+      </div>
+    </div>
   </div>
-  <youtube-player [videoId]="video.id.videoId" [height]="185" [width]="670" ></youtube-player>
+  <youtube-player [videoId]="video.id.videoId" [height]="400" [width]="680"></youtube-player>
 </div>

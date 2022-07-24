@@ -10,12 +10,15 @@ import { Video } from './models/video';
 
 export class AppComponent {
   videos: Video[] = [];
+  loading: boolean = false;
   constructor(public ApiService: ApiService ) {}
 
   onSearch = (keyword: string) => {
+    this.loading = true;
     this.ApiService.getVideosByKeyword(keyword).subscribe(response => {
       const items: Video[] = (response as any).items; 
       this.videos = items;
+      this.loading = false;
     })
   };
 }

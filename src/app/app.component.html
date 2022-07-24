@@ -1,4 +1,7 @@
 <div class="container">
   <app-search [onSearch]="onSearch"></app-search>
+  <div *ngIf="loading === true; else showVideos" class="spinner-border center"></div>
+  <ng-template #showVideos>
   <app-video *ngFor="let video of videos" [video]="video"></app-video>
+</ng-template>
 </div>
