@@ -16,7 +16,7 @@ export class VideoComponent implements OnInit {
   ngOnInit(): void {
     if(!this.apiLoaded) {
       const tag = document.createElement('script');
-      tag.src = 'httpS://www.youtube.com/iframe_api';
+      tag.src = 'http://www.youtube.com/iframe_api';
       document.body.appendChild(tag);
       this.apiLoaded = true;
     }

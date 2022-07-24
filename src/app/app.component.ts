@@ -16,9 +16,11 @@ export class AppComponent {
   onSearch = (keyword: string) => {
     this.loading = true;
     this.ApiService.getVideosByKeyword(keyword).subscribe(response => {
-      const items: Video[] = (response as any).items; 
-      this.videos = items;
-      this.loading = false;
+      if((response as any).success) {
+        const items: Video[] = (response as any).data; 
+        this.videos = items;
+        this.loading = false;
+      }
     })
   };
 }
