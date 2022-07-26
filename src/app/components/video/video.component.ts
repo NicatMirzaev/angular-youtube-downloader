@@ -9,6 +9,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class VideoComponent implements OnInit {
   private apiLoaded = false;
+  downloading = false;
   @Input() video!: Video
 
   constructor(public ApiService: ApiService) { }
@@ -22,8 +23,15 @@ export class VideoComponent implements OnInit {
     }
   }
 
-  handleDownload(videoId: string, type: string) {
-    console.log(videoId, type);
+  handleDownload(videoId: string) {
+    this.downloading = true;
+    this.ApiService.download(videoId).subscribe(response => {
+      const { success, message, url} = response as any;
+      if(success) {
+        this.downloading = false;
+        window.open('http://localhost:3000' + url, '_blank');
+      }
+    })
   }
 
 }
